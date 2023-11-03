@@ -15,7 +15,13 @@ class After
      */
     public function handle(Request $request, Closure $next): Response
     {
-        return $next($request);
-        
+        $response = $next($request);
+
+        // Lógica para ejecutar después de cargar la página 'home'
+        // Ejemplo: registrar en un archivo log la visita a la página 'home'
+        $logMessage = "Página 'home' cargada - " . now() . "\n";
+        file_put_contents(storage_path('logs/after_home.log'), $logMessage, FILE_APPEND);
+
+        return $response;
     }
 }
