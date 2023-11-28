@@ -15,7 +15,7 @@ class Before
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $logMessage = "Accediendo a la página 'home' - ".now()."\n";
+        $logMessage = "Accediendo a la página - ".now()."\n";
         file_put_contents(storage_path('logs/before_home.log'), $logMessage, FILE_APPEND);
 
         return $next($request);

@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/home', function () {
-    // Página 'home'
+
 })->middleware('/home', '/');
 require __DIR__.'/auth.php';
+

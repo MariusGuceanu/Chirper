@@ -17,9 +17,7 @@ class After
     {
         $response = $next($request);
 
-        // Lógica para ejecutar después de cargar la página 'home'
-        // Ejemplo: registrar en un archivo log la visita a la página 'home'
-        $logMessage = "Página 'home' cargada - " . now() . "\n";
+        $logMessage = "Página cargada - " . now() . "\n";
         file_put_contents(storage_path('logs/after_home.log'), $logMessage, FILE_APPEND);
 
         return $response;
